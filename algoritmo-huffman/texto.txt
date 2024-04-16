@@ -1,1 +1,3 @@
-Vamos aprender a programa
+Este texto esta sendo escrito todo sem acentuacao ou caracteres especiais como o cecidilha
+pois no meu sistema operacional (windows 11) mesmo utilizando a funcao locale, estes caracteres nao estavam
+sendo lidos da forma correta. 
