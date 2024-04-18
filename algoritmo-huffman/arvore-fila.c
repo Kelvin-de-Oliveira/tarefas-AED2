@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "arvore-fila.h"
 
-#define TAB 256
+#define TAB 256 // tamamnho da tabela ASCII
 
 
 struct fila{  
@@ -115,6 +115,14 @@ int retorna_altura_arvore(NO* raiz){
             return esq;
         else return dir;
     } 
+}
+
+void liberar_arvore(NO *raiz) {
+    if (raiz != NULL) {
+        liberar_arvore(raiz->esq); 
+        liberar_arvore(raiz->dir); 
+        free(raiz);                  
+    }
 }
 
 /*essas funções de impressao foram criadas apenas para testes durante a implementacao do algoritimo

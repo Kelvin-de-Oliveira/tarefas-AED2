@@ -2,8 +2,6 @@
 
 #define TAB 256 // tamamnho da tabela ASCII
 
-/*Implementado por Kelvin de Oliveira, usando de referencia os videos do canal 
-Programe seu futuro, disponivel em:  https://www.youtube.com/@programeseufuturo */
 
 void inicializar_tabela_zerada(unsigned int tab[]){
     int i;

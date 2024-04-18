@@ -1,18 +1,23 @@
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "arvore-fila.h"
 
-#define TAB 256
+#define TAB 256 // tamamnho da tabela ASCII
 
-/*Implementado por Kelvin de Oliveira, usando de referencia os videos do canal 
-Programe seu futuro, disponivel em:  https://www.youtube.com/@programeseufuturo */
+
 
 char** alocar_tabela(int colunas){ // alocar espaço necessário para a tabela-dicionario, a tabela que armazena a seqeuncia de 0 e 1 equivalente a cada caracter
     char **dicionario;
     int i;
 
     dicionario = (char**) malloc(sizeof(char*) * TAB);
+
+    if(dicionario == NULL){
+        printf("\nErro ao alocar memoria para a tabela dicionario");
+        return 0;
+    }
 
     for( i = 0; i < TAB; i++)
         dicionario[i] = calloc(colunas, sizeof(char));
@@ -26,11 +31,22 @@ void preencher_dicionario(char** dicionario, NO* raiz, char *codigo, int colunas
         strcpy(dicionario[raiz->caracter], codigo);
     else{
         strcpy(esquerda, codigo);
+
+        
         strcpy(direita, codigo);
         strcat(esquerda, "0");
         strcat(direita, "1");
         preencher_dicionario(dicionario, raiz->esq, esquerda, colunas);
         preencher_dicionario(dicionario, raiz->dir, direita, colunas);
+    }
+}
+
+void liberar_tabela_dicionario(char **dicionario){
+    if (dicionario != NULL) {
+        for (int i = 0; i < TAB; i++) {
+            free(dicionario[i]);  
+        }
+        free(dicionario);         
     }
 }
 

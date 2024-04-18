@@ -5,8 +5,6 @@
 #include "arvore-fila.h"
 #include "tabela_dicionario.h"
 
-/*Implementado por Kelvin de Oliveira, usando de referencia os videos do canal 
-Programe seu futuro, disponivel em:  https://www.youtube.com/@programeseufuturo */
 
 unsigned int calcula_tamanho_codificado(char** dicionario, FILE* texto){
     unsigned int tam = 0;
@@ -22,6 +20,11 @@ char* codificar(char** dicionario, FILE* texto){// cria a a string de 0 e 1 que 
     unsigned int tam = calcula_tamanho_codificado(dicionario, texto);
     char* codificado = calloc(tam, sizeof(char));
     unsigned char c;
+
+    if(codificado == NULL){
+        printf("\nErro ao alocar memoria para o texto codificado");
+        return 0;
+    }
 
     while (fread(&c, sizeof(unsigned char), 1, texto) >= 1)
         strcat(codificado, dicionario[c]);
