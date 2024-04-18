@@ -1,5 +1,6 @@
 
 
-void inicializa_tabela_zerada(unsigned int tab[]);
+void inicializar_tabela_zerada(unsigned int tab[]);
 
-void preenche_tabela(FILE *arquivo, unsigned int tab[]);
+void preencher_tabela(FILE *arquivo, unsigned int tab[]);
+

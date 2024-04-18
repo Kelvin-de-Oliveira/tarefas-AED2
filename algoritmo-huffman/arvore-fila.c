@@ -1,36 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>
-#include "arvore-lista.h"
+#include "arvore-fila.h"
 
 #define TAB 256
 
 
-struct no{
-    unsigned char  caracter;
-    int frequencia;
-    struct no *esq, *dir, *prox;
-};
-
-struct estrutura{
+struct fila{  
     NO *inicio;
     int tam;
 };
 
 
-Fila* inicializa_fila(){
+Fila* inicializar_fila(){
     Fila* fila = (Fila*)malloc(sizeof(Fila));
+
 	if(fila != NULL){
 		fila->inicio = NULL;
         fila->tam = 0;
 	}
-    else{printf("\n\tErro ao alocar memoria para a fila");}
-	
+    else{printf("\n\tErro ao alocar memoria para a arvore-fila");}
     return fila;
 }
 
-
-void inserir_ordenado_fila(Fila* fila, NO* no){
+void inserir_ordenado_fila(Fila* fila, NO* no){ // a inserção na fila sera ordenada pela frequencia de cada caracter sendo do menor para o maior 
     NO* aux;
     
     if(fila->inicio == NULL){
@@ -47,7 +39,6 @@ void inserir_ordenado_fila(Fila* fila, NO* no){
         no->prox = aux->prox;
         aux->prox = no;
     }
-
     fila->tam++;
 }
 
@@ -76,21 +67,7 @@ void preencher_fila(Fila* fila, unsigned int tab[]){
     
 }
 
-void imprimir_fila(Fila* fila){
-    if(fila->inicio == NULL)
-        printf("\n\ta fila esta vazia\n");
-
-    NO* aux;
-    aux = fila->inicio;
-
-    while(aux != NULL){
-        printf("\tCaracter: %c Frequencia: %d\n", aux->caracter, aux->frequencia);
-        aux = aux->prox;
-    }
-}
-
-
-NO* remover_primeiro_no_fila(Fila* fila){
+NO* remover_primeiro_na_fila(Fila* fila){
     NO* aux;
     aux = NULL; // por segurança, caso a lista esteja vazia não retorna lixo de memoria 
 
@@ -100,19 +77,18 @@ NO* remover_primeiro_no_fila(Fila* fila){
         aux->prox = NULL;
         fila->tam--;
     }
-
     return aux;
 }
 
-
-NO* construir_arvore(Fila* fila){ // retorna a raiz da arvore de huffman
+NO* construir_arvore_huffman(Fila* fila){ // retorna a raiz da arvore de huffman
     NO *aux1, *aux2, *noDeArvore; 
+
     while(fila->tam > 1){
-        aux1 = remover_primeiro_no_fila(fila);
-        aux2 = remover_primeiro_no_fila(fila);
+        aux1 = remover_primeiro_na_fila(fila);
+        aux2 = remover_primeiro_na_fila(fila);
         noDeArvore = (NO*) malloc(sizeof(NO));
         if(noDeArvore != NULL){
-            noDeArvore->caracter = ' ';
+            noDeArvore->caracter = 'H';
             noDeArvore->frequencia = aux1->frequencia + aux2->frequencia;
             noDeArvore->esq = aux1;
             noDeArvore->dir = aux2;
@@ -125,15 +101,43 @@ NO* construir_arvore(Fila* fila){ // retorna a raiz da arvore de huffman
         }
     }
     return fila->inicio;
-    
 }
 
-void imprimir_arvore(NO* raiz, int tam){
+int retorna_altura_arvore(NO* raiz){
+    int esq, dir;
+
+    if(raiz == NULL)
+        return -1;
+    else{
+        esq = retorna_altura_arvore(raiz->esq) + 1;
+        dir = retorna_altura_arvore(raiz->dir) + 1;
+        if(esq > dir)
+            return esq;
+        else return dir;
+    } 
+}
+
+/*essas funções de impressao foram criadas apenas para testes durante a implementacao do algoritimo
+para verificar se as estruturas necessarias estavam sendo construidas corretamente*/
+
+/*void imprimir_arvore(NO* raiz, int tam){
     if(raiz->esq == NULL && raiz->dir == NULL)
-        printf("\tFolha: %c \tAltura: %d\n", raiz->caracter, tam);
+        printf("\tFolha: %c\tAltura: %d\n", raiz->caracter, tam);
     else{
         imprimir_arvore(raiz->esq, tam + 1);
         imprimir_arvore(raiz->dir, tam + 1);
     }
 }
 
+void imprimir_fila(Fila* fila){
+    if(fila->inicio == NULL)
+        printf("\n\ta fila esta vazia\n");
+
+    NO* aux;
+    aux = fila->inicio;
+
+    while(aux != NULL){
+        printf("\tCaracter: %c Frequencia: %d\n", aux->caracter, aux->frequencia);
+        aux = aux->prox;
+    }
+}*/

@@ -1,4 +1,15 @@
-Este texto esta sendo escrito todo sem acentuacao ou caracteres especiais como o cecidilha
-pois no meu sistema operacional (windows 11) mesmo utilizando a funcao locale, estes caracteres nao estavam
-sendo lidos da forma correta. 
-O intuito deste exercicio eh implementar o algoritmo de comprenssao e descomprenssao de Huffman.
+O Algoritmo de Huffman: Compactação Eficiente de Dados
+
+O algoritmo de Huffman, desenvolvido por David A. Huffman em 1952, é uma técnica de compressão de dados que revolucionou a maneira como lidamos com grandes volumes de informações. Essa técnica, amplamente utilizada em várias aplicações, oferece uma forma eficiente de reduzir o tamanho de arquivos sem perder informações essenciais.
+
+Em sua essência, o algoritmo de Huffman baseia-se na ideia de atribuir códigos de comprimento variável aos caracteres de um texto, de forma que os caracteres mais frequentes recebam códigos mais curtos, enquanto os menos frequentes recebam códigos mais longos. Essa abordagem aproveita a redundância presente nos dados para alcançar altas taxas de compressão.
+
+O processo de compressão com o algoritmo de Huffman ocorre em várias etapas. Primeiramente, é feita uma análise estatística dos dados para determinar a frequência de ocorrência de cada caractere. Em seguida, é construída uma árvore de Huffman, onde os caracteres são organizados em nós folha e combinados em nós intermediários com base em suas frequências.
+
+Uma vez construída a árvore de Huffman, os códigos de Huffman são atribuídos aos caracteres, seguindo o caminho da raiz até o nó folha correspondente. Os caracteres mais frequentes terão códigos mais curtos, enquanto os menos frequentes terão códigos mais longos. Essa propriedade garante que a codificação seja prefixa, ou seja, nenhum código é prefixo de outro.
+
+No processo de descompressão, a árvore de Huffman é utilizada para decodificar os dados compactados, reconstruindo o texto original. Isso é feito percorrendo a árvore de Huffman de acordo com os bits do arquivo compactado até chegar a um nó folha, que corresponde a um caractere do texto original.
+
+O algoritmo de Huffman é amplamente empregado em diversas aplicações, como compressão de arquivos de texto, imagens e áudio. Sua eficiência e simplicidade o tornam uma escolha popular para a redução de tamanho de dados, contribuindo para a economia de espaço em dispositivos de armazenamento e para a transmissão mais rápida de informações através de redes.
+
+Em resumo, o algoritmo de Huffman é uma ferramenta poderosa para a compressão de dados, permitindo a redução significativa do tamanho de arquivos sem perda de informações. Sua aplicação abrange uma variedade de domínios, desempenhando um papel fundamental na otimização de recursos de armazenamento e transmissão de dados na era digital.
