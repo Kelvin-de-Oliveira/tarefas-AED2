@@ -25,16 +25,16 @@ Fila* inicializar_fila(){
 void inserir_ordenado_fila(Fila* fila, NO* no){ // a inserção na fila sera ordenada pela frequencia de cada caracter sendo do menor para o maior 
     NO* aux;
     
-    if(fila->inicio == NULL){
+    if(fila->inicio == NULL){ // se a fila esta vazia o no vai no inicio 
         fila->inicio = no;
     }
-    else if(no->frequencia < fila->inicio->frequencia){
+    else if(no->frequencia < fila->inicio->frequencia){ // caso a fila tenha elementos, mas pela frequencia o no deve ir no inicio
         no->prox = fila->inicio;
         fila->inicio = no;
     }
     else{
         aux = fila->inicio;
-        while(aux->prox != NULL && aux->prox->frequencia <= no->frequencia)
+        while(aux->prox != NULL && aux->prox->frequencia <= no->frequencia) // se as duas condicoes anteriores sao falsas entt ele deve ser inserido no "meio" logo antes do no com frequencia maior
             aux = aux->prox;
         no->prox = aux->prox;
         aux->prox = no;
@@ -88,7 +88,7 @@ NO* construir_arvore_huffman(Fila* fila){ // retorna a raiz da arvore de huffman
         aux2 = remover_primeiro_na_fila(fila);
         noDeArvore = (NO*) malloc(sizeof(NO));
         if(noDeArvore != NULL){
-            noDeArvore->caracter = 'H';
+            noDeArvore->caracter = 'H'; 
             noDeArvore->frequencia = aux1->frequencia + aux2->frequencia;
             noDeArvore->esq = aux1;
             noDeArvore->dir = aux2;

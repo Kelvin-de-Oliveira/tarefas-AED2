@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<string.h>
-#include "tabela_frequencia.h"
 #include "arvore-fila.h"
-#include "tabela_dicionario.h"
+
 
 
 unsigned int calcula_tamanho_codificado(char** dicionario, FILE* texto){

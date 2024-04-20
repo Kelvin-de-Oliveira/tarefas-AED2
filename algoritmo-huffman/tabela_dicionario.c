@@ -31,8 +31,6 @@ void preencher_dicionario(char** dicionario, NO* raiz, char *codigo, int colunas
         strcpy(dicionario[raiz->caracter], codigo);
     else{
         strcpy(esquerda, codigo);
-
-        
         strcpy(direita, codigo);
         strcat(esquerda, "0");
         strcat(direita, "1");

@@ -9,10 +9,9 @@
 
 #define TAB 256
 
-/*Implementado por Kelvin de Oliveira, usando de referencia os videos do canal 
-Programe seu futuro, disponivel em:  https://www.youtube.com/@programeseufuturo 
-As adptações aqui feitas foram para se ler o texto diretamente de um arquivo de texto, modularizar as estruturas
-e adapta-las para o problema especifico. */
+/*Implementado por Kelvin de Oliveira, usando como referencia os videos sobre estrturas de dados do canal do youtube
+Programação descomplicada, disponivel em: https://www.youtube.com/@progdescomplicada e a implementação do algoritmo por 
+Fabrício Soares, disponivel em: https://gist.github.com/soaresfabricio/721a19d1c2d390c6e147.*/
 
 
 int main (){
@@ -28,7 +27,7 @@ int main (){
 
     //SetConsoleOutputCP(65001);// funcao para para mudar o output do meu console para o padrao utf8
     
-   
+    printf("O algortimo huffman implementado nesta aplicacao, serve apenas para arquivos de texto com extensao .txt");
     printf("\nDigite o nome do arquivo .txt a ser compactado (inclua a extensao .txt e certifique-se que ele se encontra no mesmo diretorio que esta aplicacao): ");
     scanf("%s", nome_arquivo);
     fflush(stdin); 
