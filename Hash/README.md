@@ -20,7 +20,7 @@ Apresentar em tela as seguintes informações:
 - O codigo foi testado no subsistema windows, WSL 2, com distribuição Ubuntu. Para testar criei também um arquivo "checkin.txt" e nele apenas colei o conteúdo do arquivo "numero_aleatorios.txt"
 - Conforme o enunciado, e esperando que o arquivo "checkin.txt" tenha a mesma estrutura do arquivo "numeros_aleatorios.txt", o codigo foi implementado de forma que espera receber apenas números inteiros positivos (unsigned int), por motivos de maior simplicidade na implementação e eficiencia. Caso seja inserido numeros inteiros negativos, haverá erros na execução do programa. 
 - Sobre o resultado da busca, é impresso uma variavel do tipo int chamada de "Encontrado", quando ela for igual a 0, é porque a chave não foi encontrada, e quando for igual a 1 é porque foi encontrada.
-- Utilizei a técnica de encadeamento para lidar com as colisões.  
+- Utilizei a técnica de encadeamento para lidar com as colisões e criei uma função hash utilizando o método da multiplicação, conforme: https://edisciplinas.usp.br/mod/hvp/view.php?id=3305382.
 
 Para compilar o codigo:
 > gcc - o desafioHash desafioHash.c 

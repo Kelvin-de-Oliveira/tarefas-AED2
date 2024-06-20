@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+/*Implementado por Kelvin de Oliveria, como atividade da disciplina Algoritmos e Estruturas de Dados, ofertado pelo
+INF - Instituto de Informática da Universidade Federal de Goiás (UFG), e ministrada pelo professor Ronaldo Martins Costa*/
+
 #define TAB_TAM 2000
 
 typedef struct No{
@@ -11,7 +14,7 @@ typedef struct No{
 
 No* tabelaHash[TAB_TAM];
 
-// Função hash por multiplicação
+// função hash por multiplicação
 unsigned int funcao_hash(unsigned int chave) {
     double A = 0.6180339887; 
     double parte_frac = (chave * A) - (unsigned int)(chave * A);
