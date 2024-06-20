@@ -100,7 +100,7 @@ void registrar_resultado(char* arquivo_saida, int* checkin, int qtde_checkin) {
         clock_t fim = clock();
         double tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
 
-        fprintf(fp, "Chave: %u, Encontrado: %d, Passos: %d, Colisões: %d, Tempo: %f segundos\n",
+        fprintf(fp, "Chave: %u, Encontrado: %d, Passos: %d, Colisões: %d, Tempo: %f(s)\n",
                 checkin[i], encontrado, passos, colisoes, tempo);
     }
 
@@ -139,7 +139,7 @@ int main() {
         clock_t fim = clock();
         double tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
 
-        printf("Chave: %u, Encontrado: %d, Passos: %d, Colisões: %d, Tempo: %fs\n", checkin[i], encontrado, passos, colisoes, tempo);
+        printf("Chave: %u, Encontrado: %d, Passos: %d, Colisões: %d, Tempo: %f(s)\n", checkin[i], encontrado, passos, colisoes, tempo);
     }
 
     free(numeros_aleatorios);
